@@ -9,12 +9,19 @@ const {
   updateBook,
 } = require("../controller/book.controller");
 
+// Route for auto-fill feature
 router.route("/autofill").get(getBookDetails);
 
-// Get all books
-router.route("/").get(getBooks).post(addBook);
-router.route("/:id").delete(deleteBooks).put(updateBook).get(getSingleBook);
+// CRUD operations for books
+router
+  .route("/")
+  .get(getBooks) // Get all books
+  .post(addBook); // Add new book
 
-// Auto-fill book details
+router
+  .route("/:id")
+  .get(getSingleBook) // Get single book
+  .put(updateBook) // Update book
+  .delete(deleteBooks); // Delete book
 
 module.exports = router;
