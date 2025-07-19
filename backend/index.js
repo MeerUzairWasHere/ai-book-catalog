@@ -4,20 +4,19 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
+const bookRoutes = require("./routes/book.routes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
 
-const bookRoutes = require("./routes/book.routes");
-
 app.use("/api/v1/books", bookRoutes);
 app.get("/api/v1/health", (req, res) => {
   res.status(200).json({ msg: "Server is running!" });
 });
 
-app.get("*", (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
 });
 
