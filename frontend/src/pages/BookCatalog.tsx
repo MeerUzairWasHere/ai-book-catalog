@@ -44,7 +44,7 @@ export default function BookCatalog() {
 
   const [currentPage, setCurrentPage] = useState<Page>("list");
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>("grid");
+  const [viewMode] = useState<ViewMode>("grid");
   const [isDark, setIsDark] = useState(false);
 
   // Form state
@@ -200,7 +200,7 @@ export default function BookCatalog() {
                 )}
               </Button>
 
-              <div className="hidden sm:flex items-center gap-1 border rounded-md p-1">
+              {/* <div className="hidden sm:flex items-center gap-1 border rounded-md p-1">
                 <Button
                   variant={viewMode === "grid" ? "default" : "ghost"}
                   size="sm"
@@ -217,7 +217,7 @@ export default function BookCatalog() {
                 >
                   <List className="h-4 w-4" />
                 </Button>
-              </div>
+              </div> */}
 
               <Button
                 onClick={handleAddBook}
