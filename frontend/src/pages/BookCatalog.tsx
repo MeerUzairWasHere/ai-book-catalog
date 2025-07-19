@@ -1,6 +1,6 @@
 import { toast } from "sonner";
 import { useState, useEffect } from "react";
-import { Plus, Grid3X3, List, Moon, Sun } from "lucide-react";
+import { Plus, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
@@ -199,25 +199,6 @@ export default function BookCatalog() {
                   <Moon className="h-4 w-4" />
                 )}
               </Button>
-
-              {/* <div className="hidden sm:flex items-center gap-1 border rounded-md p-1">
-                <Button
-                  variant={viewMode === "grid" ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setViewMode("grid")}
-                  className="px-2"
-                >
-                  <Grid3X3 className="h-4 w-4" />
-                </Button>
-                <Button
-                  variant={viewMode === "list" ? "default" : "ghost"}
-                  size="sm"
-                  onClick={() => setViewMode("list")}
-                  className="px-2"
-                >
-                  <List className="h-4 w-4" />
-                </Button>
-              </div> */}
 
               <Button
                 onClick={handleAddBook}
