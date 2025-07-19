@@ -1,14 +1,13 @@
 require("dotenv").config();
 const connectDB = require("./db");
 const express = require("express");
-const path = require("path");
+const { path, dirname } = require("path");
+const { fileURLToPath } = require("url");
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-import { dirname } from "path";
-import { fileURLToPath } from "url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
