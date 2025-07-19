@@ -1,15 +1,13 @@
 require("dotenv").config();
 const connectDB = require("./db");
 const express = require("express");
-const { path, dirname } = require("path");
-const { fileURLToPath } = require("url");
+const path   = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.resolve(__dirname, "../frontend/dist")));
 
 const bookRoutes = require("./routes/book.routes");
