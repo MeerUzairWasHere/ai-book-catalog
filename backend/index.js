@@ -1,7 +1,7 @@
 require("dotenv").config();
 const connectDB = require("./db");
 const express = require("express");
-import path from "path";
+const path = require("path");
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -23,7 +23,6 @@ app.get("/api/v1/health", (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../frontend/dist", "index.html"));
 });
-
 
 const start = async () => {
   try {
